@@ -7,5 +7,5 @@ $(document).ready(() => {
 });
 
 $("#startBtn").click(function() {
-  window.location.href = "gamestart.html";
+  window.location.replace("/gamestart");
 });
