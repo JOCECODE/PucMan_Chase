@@ -72,6 +72,7 @@
           let bodyB = contact.getFixtureB().getBody();
 
           let apuck = bodyA === puckman;
+
           let bpuck = bodyB === puckman;
 
           if ((apuck || bpuck) && allowCrashTime < globalTime) {
@@ -118,7 +119,7 @@
           });
 
           puckman.createFixture(pl.Circle([Vec2(0, 0.2)]), {
-            density: 1000,
+            density: 10,
             filterCategoryBits: PUCK,
             filterMaskBits: GHOST,
           });
@@ -126,6 +127,7 @@
         }
 
         let globalTime = 0;
+        
         function tick(dt) {
           globalTime += dt;
 
