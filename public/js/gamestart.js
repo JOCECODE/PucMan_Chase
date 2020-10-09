@@ -1,3 +1,4 @@
+// TODO LOOK INTO ADDING IN SPRITES AND OR HOW TO STYLE THE OBJECTS TO APPEAR AS GHOSTS AND PACMAN
 planck.testbed("Puckman", function(testbed) {
   const pl = planck,
     Vec2 = pl.Vec2;
