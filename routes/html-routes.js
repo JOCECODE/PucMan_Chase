@@ -30,6 +30,7 @@ module.exports = function(app) {
   app.get("/gamestart", isAuthenticated, (req, res) => {
     res.sendFile(path.join(__dirname, "../public/gamestart.html"));
   });
+
   app.get("/score", isAuthenticated, (req, res) => {
     res.sendFile(path.join(__dirname, "../public/score.html"));
   });
