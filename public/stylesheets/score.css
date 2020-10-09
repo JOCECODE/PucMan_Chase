@@ -1,0 +1,19 @@
+body {
+  background-color: gray;
+}
+.titleHeader {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 44px;
+  text-align: center;
+}
+
+.scoreCard {
+  color: wheat;
+  border: aliceblue;
+  border-style: groove;
+  font-size: x-large;
+  border-width: thick;
+}
+button {
+  text-align: center;
+}
