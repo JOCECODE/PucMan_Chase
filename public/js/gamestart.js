@@ -1,4 +1,19 @@
-// TODO LOOK INTO ADDING IN SPRITES AND OR HOW TO STYLE THE OBJECTS TO APPEAR AS GHOSTS AND PACMAN
+// TODO LOOK INTO ADDING IN SPRITES AND OR HOW TO STYLE THE OBJECTS TO APPEAR AS GHOSTS AND PAcman
+
+let currentLevel = 1;
+document.querySelector("#level").innerHTML = currentLevel;
+setInterval(function level() {
+  currentLevel++;
+  document.querySelector("#level").innerHTML = currentLevel;
+}, 10000);
+
+let startTime = Date.now();
+
+setInterval(function() {
+  let elapsedTime = Date.now() - startTime;
+  document.querySelector("#timer").innerHTML = (elapsedTime / 1000).toFixed(1);
+}, 100);
+
 planck.testbed("Puckman", function(testbed) {
   const pl = planck,
     Vec2 = pl.Vec2;
@@ -19,9 +34,9 @@ planck.testbed("Puckman", function(testbed) {
   const ghostSpeed = 3;
   const ghostLevels = 4;
 
-  let level;
   let lives;
   let gameOver;
+  let level;
 
   let allowCrashTime = 0;
 
@@ -62,6 +77,7 @@ planck.testbed("Puckman", function(testbed) {
     setInterval(function() {
       console.log("Added a ghost");
       level++;
+      console.log(level);
       addGhosts();
     }, 10000);
   }
@@ -70,6 +86,7 @@ planck.testbed("Puckman", function(testbed) {
     gameOver = false;
     level = 1;
     lives = 3;
+    currentLevel = 1;
     uiStatus();
     setupPuckman(true);
     addGhosts();
@@ -256,8 +273,22 @@ planck.testbed("Puckman", function(testbed) {
     console.log("Game started");
   }
 
+  function renderScores(user_id, level) {
+    $.post("/api/save", {
+      user_id: user_id,
+      level: parseInt(level),
+    }).then(function(data) {
+      window.location.replace("/score");
+    });
+  }
+
   function uiEnd() {
-    window.location.replace("/score");
+    $.get("/api/user_data", function(data) {
+      console.log(data);
+      console.log(data.id);
+      console.log(currentLevel);
+      renderScores(data.id, currentLevel);
+    });
     console.log("Game over");
     testbed.status("Game Over!");
   }
