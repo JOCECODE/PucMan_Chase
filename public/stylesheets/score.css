@@ -1,6 +1,9 @@
 body {
   background-color: #222222;
 }
+.img-container {
+  text-align: center;
+}
 .titleHeader {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-size: 44px;
@@ -15,7 +18,9 @@ body {
   font-size: x-large;
   border-width: thick;
 }
-.btn {
+.buttons {
   text-align: center;
+}
+.btn {
   margin-bottom: 1pc;
 }
