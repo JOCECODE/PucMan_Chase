@@ -1,10 +1,14 @@
 body {
   background-color: #222222;
 }
+.img-container {
+  text-align: center;
+}
 .titleHeader {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-size: 44px;
   text-align: center;
+  color: wheat;
 }
 
 .scoreCard {
@@ -14,6 +18,9 @@ body {
   font-size: x-large;
   border-width: thick;
 }
-button {
+.buttons {
   text-align: center;
+}
+.btn {
+  margin-bottom: 1pc;
 }

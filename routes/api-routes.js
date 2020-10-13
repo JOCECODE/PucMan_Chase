@@ -62,4 +62,13 @@ module.exports = function(app) {
       });
     }
   });
+  app.get("/api/score_data", (req, res) => {
+    if (req.scores) {
+      res.json({
+        score: req.scores.score
+      });
+    } else {
+      res.json({});
+    }
+  });
 };

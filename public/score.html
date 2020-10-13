@@ -12,7 +12,10 @@
     />
     <link href="stylesheets/score.css" rel="stylesheet" />
   </head>
-  <body>
+  <body background="img/stars.jpg" style="text-align: center;">
+    <div class="img-container">
+      <img src="img/HighScore.png">
+    </div>
     <div class="container">
       <div class="row">
         <div class="col-12">
@@ -24,11 +27,14 @@
           </p>
         </div>
       </div>
+      <div class="container buttons">
+
       <div class="row">
-        <button class="btn btn-dark btn-lg" id="playAgain">Play Again?</button>
+        <button class="btn btn-lg" id="playAgain"><a href="/gamestart">Play Again?</a></button>
       </div>
       <div class="row">
-        <button class="btn btn-light btn-lg" id="returnHome">Menu</button>
+        <button class="btn btn-lg" id="returnHome"><a href="/members">Menu</a></button>
+      </div>
       </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
