@@ -6,6 +6,7 @@ setInterval(function level() {
   currentScore++;
   document.querySelector("#score").innerHTML = " :" + currentScore;
 }, 100);
+
 let currentLevel = 1;
 document.querySelector("#level").innerHTML = " :" + currentLevel;
 setInterval(function level() {
@@ -89,10 +90,21 @@ planck.testbed("Puckman", function(testbed) {
     }, 10000);
   }
 
+  function reduceLives() {
+    if (lives == 3) {
+      document.querySelector("#lives").innerHTML = " X " + 3;
+    } else if (lives == 2) {
+      document.querySelector("#lives").innerHTML = " X " + 2;
+    } else {
+      document.querySelector("#lives").innerHTML = " X " + 1;
+    }
+  }
+
   function start() {
     gameOver = false;
     level = 1;
     lives = 3;
+    reduceLives();
     uiStatus();
     setupPuckman(true);
     addGhosts();
@@ -231,6 +243,7 @@ planck.testbed("Puckman", function(testbed) {
     if (!puckman) return;
 
     lives--;
+    reduceLives();
     uiStatus();
 
     // Remove Puckman for awhile
