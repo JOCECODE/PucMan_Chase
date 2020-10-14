@@ -1,5 +1,11 @@
 // TODO LOOK INTO ADDING IN SPRITES AND OR HOW TO STYLE THE OBJECTS TO APPEAR AS GHOSTS AND PAcman
 
+let currentScore = 0;
+document.querySelector("#score").innerHTML = currentScore;
+setInterval(function level() {
+  currentScore++;
+  document.querySelector("#score").innerHTML = currentScore;
+}, 100);
 let currentLevel = 1;
 document.querySelector("#level").innerHTML = currentLevel;
 setInterval(function level() {
@@ -86,7 +92,6 @@ planck.testbed("Puckman", function(testbed) {
     gameOver = false;
     level = 1;
     lives = 3;
-    currentLevel = 1;
     uiStatus();
     setupPuckman(true);
     addGhosts();
@@ -273,10 +278,11 @@ planck.testbed("Puckman", function(testbed) {
     console.log("Game started");
   }
 
-  function renderScores(user_id, level) {
+  function renderScores(user_id, score, level) {
     $.post("/api/save", {
       user_id: user_id,
-      level: parseInt(level),
+      score: score,
+      level: level,
     }).then(function(data) {
       window.location.replace("/score");
     });
@@ -284,10 +290,10 @@ planck.testbed("Puckman", function(testbed) {
 
   function uiEnd() {
     $.get("/api/user_data", function(data) {
-      console.log(data);
       console.log(data.id);
+      console.log(currentScore);
       console.log(currentLevel);
-      renderScores(data.id, currentLevel);
+      renderScores(data.id, currentScore, currentLevel);
     });
     console.log("Game over");
     testbed.status("Game Over!");
