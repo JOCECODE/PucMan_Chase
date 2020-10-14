@@ -1,23 +1,24 @@
 // TODO LOOK INTO ADDING IN SPRITES AND OR HOW TO STYLE THE OBJECTS TO APPEAR AS GHOSTS AND PAcman
 
 let currentScore = 0;
-document.querySelector("#score").innerHTML = currentScore;
+document.querySelector("#score").innerHTML = " :" + currentScore;
 setInterval(function level() {
   currentScore++;
-  document.querySelector("#score").innerHTML = currentScore;
+  document.querySelector("#score").innerHTML = " :" + currentScore;
 }, 100);
 let currentLevel = 1;
-document.querySelector("#level").innerHTML = currentLevel;
+document.querySelector("#level").innerHTML = " :" + currentLevel;
 setInterval(function level() {
   currentLevel++;
-  document.querySelector("#level").innerHTML = currentLevel;
+  document.querySelector("#level").innerHTML = " :" + currentLevel;
 }, 10000);
 
 let startTime = Date.now();
 
 setInterval(function() {
   let elapsedTime = Date.now() - startTime;
-  document.querySelector("#timer").innerHTML = (elapsedTime / 1000).toFixed(1);
+  document.querySelector("#timer").innerHTML =
+    " :" + (elapsedTime / 1000).toFixed(1);
 }, 100);
 
 planck.testbed("Puckman", function(testbed) {

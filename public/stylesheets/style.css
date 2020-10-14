@@ -15,7 +15,10 @@ form.login {
   font-weight: normal;
   font-style: normal;
 }
+
 .pacStyle {
   font-family: pacfontregular;
   font-size: 36px;
+  color: rgb(255, 255, 255);
+  z-index: 2;
 }
