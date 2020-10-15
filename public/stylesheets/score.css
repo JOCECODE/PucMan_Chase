@@ -23,6 +23,17 @@ body {
   border-style: groove;
   font-size: x-large;
   border-width: thick;
+  font-family: "Press Start 2P";
+}
+.scoreRight {
+  border-right-style: dotted;
+  border-width: unset;
+  border-color: rgb(210, 211, 136);
+}
+.levelLeft {
+  border-left-style: dotted;
+  border-width: unset;
+  border-color: rgb(210, 211, 136);
 }
 .buttons {
   text-align: center;
