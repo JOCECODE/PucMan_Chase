@@ -22,6 +22,9 @@ setInterval(function() {
     " :" + (elapsedTime / 1000).toFixed(1);
 }, 100);
 
+const backgroundMusic = document.querySelector("#bgm");
+const crashSound = document.querySelector("#ohNo");
+
 planck.testbed("Puckman", function(testbed) {
   const pl = planck,
     Vec2 = pl.Vec2;
@@ -101,6 +104,7 @@ planck.testbed("Puckman", function(testbed) {
   }
 
   function start() {
+    backgroundMusic.play();
     gameOver = false;
     level = 1;
     lives = 3;
@@ -241,7 +245,7 @@ planck.testbed("Puckman", function(testbed) {
 
   function crash(puck, ghost) {
     if (!puckman) return;
-
+    crashSound.play();
     lives--;
     reduceLives();
     uiStatus();
