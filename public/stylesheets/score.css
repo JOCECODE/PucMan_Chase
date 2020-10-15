@@ -4,13 +4,19 @@ body {
 .img-container {
   text-align: center;
 }
-.titleHeader {
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+.userName {
+  font-family: "pacfontregular";
   font-size: 44px;
   text-align: center;
   color: wheat;
 }
-
+@font-face {
+  font-family: "pacfontregular";
+  src: url("pac-font-webfont.woff2") format("woff2"),
+    url("pac-font-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 .scoreCard {
   color: wheat;
   border: aliceblue;
