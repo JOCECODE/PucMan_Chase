@@ -63,6 +63,15 @@ form.login {
   position: absolute;
 }
 
+#arrows {
+  position: absolute;
+  z-index: 2;
+  bottom: 0px;
+  right: 0px;
+  height: 30%;
+  width: 25%;
+}
+
 @keyframes spin1 {
   0% {
     transform: rotate(0deg);

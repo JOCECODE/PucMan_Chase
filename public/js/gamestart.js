@@ -105,6 +105,7 @@ planck.testbed("Puckman", function(testbed) {
 
   function start() {
     backgroundMusic.play();
+
     gameOver = false;
     level = 1;
     lives = 3;
