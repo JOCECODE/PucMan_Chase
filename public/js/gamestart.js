@@ -289,6 +289,7 @@ planck.testbed("Puckman", function(testbed) {
   }
 
   function uiEnd() {
+    window.location.replace("/score");
     $.get("/api/user_data", function(data) {
       console.log(data.id);
       console.log(currentScore);
