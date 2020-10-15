@@ -37,6 +37,7 @@ body {
 }
 .buttons {
   text-align: center;
+  margin-left: -15px;
 }
 .btn {
   margin-bottom: 1pc;
