@@ -1,4 +1,4 @@
-
+const endMusic = document.querySelector("#dogLaugh");
 $(document).ready(function() {
   const id = localStorage.getItem("name");
   $("#scoreTransition").hide();
