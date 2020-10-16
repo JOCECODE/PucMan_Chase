@@ -279,18 +279,23 @@ planck.testbed("Puckman", function(testbed) {
   }
 
   function renderScores(user_id, score, level) {
+    console.log("in render scores")
     $.post("/api/save", {
       user_id: user_id,
       score: score,
       level: level,
-    }).then(function(data) {
+    }).then(function (data) {
+      console.log("data",data)
       window.location.replace("/score");
     });
   }
 
   function uiEnd() {
-    window.location.replace("/score");
-    $.get("/api/user_data", function(data) {
+    localStorage.setItem("currentScore", currentScore);
+    localStorage.setItem("currentLevel", currentLevel);
+    $.get("/api/user_data", function (data) {
+      localStorage.setItem("name", data.id);
+
       console.log(data.id);
       console.log(currentScore);
       console.log(currentLevel);
