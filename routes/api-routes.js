@@ -15,6 +15,7 @@ module.exports = function(app) {
   });
 
   app.post("/api/save", (req, res) => {
+    console.log("Testiyng", req.body)
     db.Scores.create({
       user_id: req.body.user_id,
       score: req.body.score,
@@ -63,13 +64,14 @@ module.exports = function(app) {
       });
     }
   });
-  app.get("/api/score_data", (req, res) => {
-    if (req.scores) {
-      res.json({
-        score: req.scores.score,
-      });
-    } else {
-      res.json({});
-    }
+  app.get("/api/save/:user_id", (req, res) => {
+    const userId = req.params.user_id;
+    console.log("-----------------------------------------------------------------")
+    console.log("id", userId);
+    db.Scores.findAll({
+      where: {
+        user_id:userId
+      }
+    }).then(data => res.json(data));
   });
 };

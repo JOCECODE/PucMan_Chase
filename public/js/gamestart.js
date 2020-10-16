@@ -1,24 +1,29 @@
 // TODO LOOK INTO ADDING IN SPRITES AND OR HOW TO STYLE THE OBJECTS TO APPEAR AS GHOSTS AND PAcman
 
 let currentScore = 0;
-document.querySelector("#score").innerHTML = currentScore;
+document.querySelector("#score").innerHTML = " :" + currentScore;
 setInterval(function level() {
   currentScore++;
-  document.querySelector("#score").innerHTML = currentScore;
+  document.querySelector("#score").innerHTML = " :" + currentScore;
 }, 100);
+
 let currentLevel = 1;
-document.querySelector("#level").innerHTML = currentLevel;
+document.querySelector("#level").innerHTML = " :" + currentLevel;
 setInterval(function level() {
   currentLevel++;
-  document.querySelector("#level").innerHTML = currentLevel;
+  document.querySelector("#level").innerHTML = " :" + currentLevel;
 }, 10000);
 
 let startTime = Date.now();
 
 setInterval(function() {
   let elapsedTime = Date.now() - startTime;
-  document.querySelector("#timer").innerHTML = (elapsedTime / 1000).toFixed(1);
+  document.querySelector("#timer").innerHTML =
+    " :" + (elapsedTime / 1000).toFixed(1);
 }, 100);
+
+const backgroundMusic = document.querySelector("#bgm");
+const crashSound = document.querySelector("#ohNo");
 
 planck.testbed("Puckman", function(testbed) {
   const pl = planck,
@@ -58,8 +63,8 @@ planck.testbed("Puckman", function(testbed) {
   };
 
   world.on("pre-solve", function(contact) {
-    let fixtureA = contact.getFixtureA();
-    let fixtureB = contact.getFixtureB();
+    // let fixtureA = contact.getFixtureA();
+    // let fixtureB = contact.getFixtureB();
 
     let bodyA = contact.getFixtureA().getBody();
     let bodyB = contact.getFixtureB().getBody();
@@ -88,10 +93,23 @@ planck.testbed("Puckman", function(testbed) {
     }, 10000);
   }
 
+  function reduceLives() {
+    if (lives == 3) {
+      document.querySelector("#lives").innerHTML = " X " + 3;
+    } else if (lives == 2) {
+      document.querySelector("#lives").innerHTML = " X " + 2;
+    } else {
+      document.querySelector("#lives").innerHTML = " X " + 1;
+    }
+  }
+
   function start() {
+    backgroundMusic.play();
+
     gameOver = false;
     level = 1;
     lives = 3;
+    reduceLives();
     uiStatus();
     setupPuckman(true);
     addGhosts();
@@ -165,10 +183,10 @@ planck.testbed("Puckman", function(testbed) {
 
   // Add some ghosts to the scene
   function addGhosts() {
-    while (ghostBodies.length) {
-      let ghostBody = ghostBodies.shift();
-      // world.destroyBody(ghostBody);
-    }
+    // while (ghostBodies.length) {
+    //   let ghostBody = ghostBodies.shift();
+    //   // world.destroyBody(ghostBody);
+    // }
 
     for (let i = 0; i < level; i++) {
       let puckmanPosition = puckman.getPosition();
@@ -200,7 +218,7 @@ planck.testbed("Puckman", function(testbed) {
 
   function makeGhostBody(x, y, vx, vy, va, level) {
     let ghostBody = world.createKinematicBody({
-      mass: 10,
+      mass: 100,
       position: Vec2(x, y),
       linearVelocity: Vec2(vx, vy),
       angularVelocity: va,
@@ -228,8 +246,9 @@ planck.testbed("Puckman", function(testbed) {
 
   function crash(puck, ghost) {
     if (!puckman) return;
-
+    crashSound.play();
     lives--;
+    reduceLives();
     uiStatus();
 
     // Remove Puckman for awhile
@@ -279,17 +298,23 @@ planck.testbed("Puckman", function(testbed) {
   }
 
   function renderScores(user_id, score, level) {
+    console.log("in render scores")
     $.post("/api/save", {
       user_id: user_id,
       score: score,
       level: level,
-    }).then(function(data) {
-      window.location.replace("/score");
+    }).then(function (data) {
+      console.log("data",data)
+      window.location = ("/score");
     });
   }
 
   function uiEnd() {
-    $.get("/api/user_data", function(data) {
+    localStorage.setItem("currentScore", currentScore);
+    localStorage.setItem("currentLevel", currentLevel);
+    $.get("/api/user_data", function (data) {
+      localStorage.setItem("name", data.id);
+
       console.log(data.id);
       console.log(currentScore);
       console.log(currentLevel);
