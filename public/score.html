@@ -10,8 +10,8 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css"
     />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link href="stylesheets/score.css" rel="stylesheet" />
-    <link rel="icon" type="image/png" href="img/pucManFavicon.png" />
   </head>
   <body
     id="scoreTransition"
@@ -19,29 +19,30 @@
     style="text-align: center; "
   >
     <div class="img-container">
-      <img src="img/HighScore.png" />
+      game over!
     </div>
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <h1 class="titleHeader">
-            Here are your Top High Scores!
+          <h1 class="userName" name="user">
+            USER here
           </h1>
-          <p class="scoreCard">
-            Show scores here based on user name(email)
-          </p>
+        </div>
+      </div>
+      <div class="row scoreCard">
+        <div class="col-md-6 scoreRight">SCORE
+          <p id="scores"></p>
+        </div>
+        <div class="col-md-6 levelLeft">LEVEL
+          <p id="level"></p>
         </div>
       </div>
       <div class="container buttons">
         <div class="row">
-          <button class="btn btn-lg" id="playAgain">
-            <a href="/gamestart">Play Again?</a>
-          </button>
+          <button class="btn1 btn-lg" id="playAgain"><a href="/gamestart">Play Again?</a></button>
         </div>
         <div class="row">
-          <button class="btn btn-lg" id="returnHome">
-            <a href="/members">Menu</a>
-          </button>
+          <button class="btn btn-lg" id="returnHome"><a href="/members">Menu</a></button>
         </div>
       </div>
     </div>
