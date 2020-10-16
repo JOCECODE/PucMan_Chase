@@ -1,5 +1,9 @@
-$(document).ready(() => {
+
+$(document).ready(function() {
   const id = localStorage.getItem("name");
+  $("#scoreTransition").hide();
+  $("#scoreTransition").fadeIn(400);
+  endMusic.play();
   $.get("/api/user_data").then(data => {
     $(".userName").text(data.email);
   });
@@ -8,9 +12,4 @@ $(document).ready(() => {
     $("#scores").text(data.score);
     $("#level").text(data.level);
   });
-  // var score = localStorage.getItem("currentScore")
-  // var level = localStorage.getItem("currentLevel")
-  // $("#scores").text(score)
-  // $("#level").text(level)
-
 });
