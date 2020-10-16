@@ -17,6 +17,7 @@ module.exports = function(app) {
   app.post("/api/save", (req, res) => {
     db.Scores.create({
       user_id: req.body.user_id,
+      score: req.body.score,
       level: req.body.level,
     })
       .then((data) => {
@@ -65,7 +66,7 @@ module.exports = function(app) {
   app.get("/api/score_data", (req, res) => {
     if (req.scores) {
       res.json({
-        score: req.scores.score
+        score: req.scores.score,
       });
     } else {
       res.json({});
