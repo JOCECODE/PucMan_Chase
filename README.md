@@ -6,7 +6,7 @@
 
 </div>
 
-<div style="text-align: center;">
+<div style="text-align: left;">
 
 ![GitHub](https://img.shields.io/github/license/JOCECODE/PucMan_Chase?style=plastic) ![GitHub All Releases](https://img.shields.io/github/downloads/JOCECODE/PucMan_Chase/total?logo=Github&style=plastic) ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/JOCECODE/PucMan_Chase?color=dodgerblue&logo=github&style=plastic) ![GitHub contributors](https://img.shields.io/github/contributors/JOCECODE/PucMan_Chase?color=goldenrod&logo=github&style=plastic)
 

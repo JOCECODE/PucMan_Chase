@@ -63,8 +63,8 @@ planck.testbed("Puckman", function(testbed) {
   };
 
   world.on("pre-solve", function(contact) {
-    let fixtureA = contact.getFixtureA();
-    let fixtureB = contact.getFixtureB();
+    // let fixtureA = contact.getFixtureA();
+    // let fixtureB = contact.getFixtureB();
 
     let bodyA = contact.getFixtureA().getBody();
     let bodyB = contact.getFixtureB().getBody();
@@ -183,10 +183,10 @@ planck.testbed("Puckman", function(testbed) {
 
   // Add some ghosts to the scene
   function addGhosts() {
-    while (ghostBodies.length) {
-      let ghostBody = ghostBodies.shift();
-      // world.destroyBody(ghostBody);
-    }
+    // while (ghostBodies.length) {
+    //   let ghostBody = ghostBodies.shift();
+    //   // world.destroyBody(ghostBody);
+    // }
 
     for (let i = 0; i < level; i++) {
       let puckmanPosition = puckman.getPosition();
@@ -218,7 +218,7 @@ planck.testbed("Puckman", function(testbed) {
 
   function makeGhostBody(x, y, vx, vy, va, level) {
     let ghostBody = world.createKinematicBody({
-      mass: 10,
+      mass: 100,
       position: Vec2(x, y),
       linearVelocity: Vec2(vx, vy),
       angularVelocity: va,

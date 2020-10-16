@@ -72,6 +72,10 @@ form.login {
   width: 25%;
 }
 
+canvas {
+  background: url(https://media.giphy.com/media/FlodpfQUBSp20/source.gif);
+}
+
 @keyframes spin1 {
   0% {
     transform: rotate(0deg);
