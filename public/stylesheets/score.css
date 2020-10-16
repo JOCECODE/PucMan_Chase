@@ -4,12 +4,12 @@ body {
 }
 .img-container {
   text-align: center;
-  font-size: 8pc;
+  font-size: 8vw;
   color: aquamarine;
   font-family: "pacfontregular";
 }
 .userName {
-  font-size: 44px;
+  font-size: 4vw;
   text-align: center;
   color: wheat;
 }
