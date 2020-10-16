@@ -66,10 +66,11 @@ module.exports = function(app) {
   });
   app.get("/api/save/:user_id", (req, res) => {
     const userId = req.params.user_id;
+    console.log("-----------------------------------------------------------------")
     console.log("id", userId);
-    db.Scores.findOne({
+    db.Scores.findAll({
       where: {
-        user_id: req.params.user_id
+        user_id:userId
       }
     }).then(data => res.json(data));
   });
