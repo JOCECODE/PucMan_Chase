@@ -305,7 +305,7 @@ planck.testbed("Puckman", function(testbed) {
       level: level,
     }).then(function (data) {
       console.log("data",data)
-      window.location.replace("/score");
+      window.location = ("/score");
     });
   }
 
