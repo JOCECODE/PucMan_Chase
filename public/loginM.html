@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="login-page.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+<audio id="audio" src="../public/sound/pac-man-intro.mp3"></audio>
+
+<main id="main-holder">
+  <h1 id="login-header">Login</h1>
+
+    <div id="pucman-gif">
+      <img src="../public/img/d7zjrl2-ad8edc3b-763d-406d-ba74-385e9422c8cb.gif" alt="image of PucMan running">
+    </div>
+
+  <div id="login-error-msg-holder">
+    <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
+  </div>
+
+  <form id="login-form">
+    <label for="username-field"></label><input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username">
+    <label for="password-field"></label><input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
+    <input type="button" value="Login" id="login-form-submit" onclick="audio.play()">
+<!--    <input type="button" value="PLAY" onclick="play()">-->
+    </form>
+ <a href="aboutUs.html">About The Devs</a>
+</main>
+<script defer src="login-page.js"></script>
+</body>
+
+</html>
