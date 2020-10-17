@@ -6,11 +6,6 @@ $(document).ready(() => {
   const emailInput = $("input#email-input");
   const passwordInput = $("input#password-input");
 
-  function play() {
-    let audio = document.getElementById("audio");
-    return audio.play();
-  }
-
   // window.onload = function() {
   //   document.getElementById("#pop").play();
   // };
