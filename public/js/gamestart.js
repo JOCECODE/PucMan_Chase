@@ -23,7 +23,9 @@ setInterval(function() {
 }, 100);
 
 const backgroundMusic = document.querySelector("#bgm");
+backgroundMusic.volume = 0.3;
 const crashSound = document.querySelector("#ohNo");
+crashSound.volume = 1;
 
 planck.testbed("Puckman", function(testbed) {
   const pl = planck,
@@ -95,11 +97,11 @@ planck.testbed("Puckman", function(testbed) {
 
   function reduceLives() {
     if (lives == 3) {
-      document.querySelector("#lives").innerHTML = " X " + 3;
-    } else if (lives == 2) {
       document.querySelector("#lives").innerHTML = " X " + 2;
-    } else {
+    } else if (lives == 2) {
       document.querySelector("#lives").innerHTML = " X " + 1;
+    } else {
+      document.querySelector("#lives").innerHTML = " X " + 0;
     }
   }
 

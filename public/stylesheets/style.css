@@ -3,8 +3,21 @@ form.login {
   margin-top: 50px;
 }
 
+.background {
+  background-image: url(https://media.giphy.com/media/FlodpfQUBSp20/source.gif);
+  opacity: 75%;
+}
+
+.pacPicture {
+  background-color: blueviolet;
+}
+
 .welcome {
   text-align: center;
+  color: rgb(255, 255, 255);
+  font-family: "Press Start 2P";
+  background-color: black;
+  font-size: 2vw;
 }
 
 #lives {
@@ -24,7 +37,6 @@ form.login {
 
 .pacStyle {
   font-family: pacfontregular;
-
   color: rgb(255, 255, 255);
   z-index: 2;
   font-size: 2.5vw;
@@ -77,6 +89,12 @@ form.login {
 
 canvas {
   background: url(https://media.giphy.com/media/FlodpfQUBSp20/source.gif);
+}
+
+.memFont {
+  font-family: "Press Start 2P";
+  color: rgb(255, 174, 0);
+  font-size: 1.6vw;
 }
 
 @keyframes spin1 {
